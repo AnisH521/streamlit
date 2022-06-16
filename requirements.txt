@@ -1,0 +1,5 @@
+easyocr
+streamlit
+PIL
+numpy
+cv2
