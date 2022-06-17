@@ -7,6 +7,7 @@ import streamlit as st
 from PIL import Image 
 import numpy as np  
 import cv2
+import time
 
 # Heading and subheading
 
@@ -14,7 +15,7 @@ code = '''def Image_To_Text():
             print("Hello, User!")'''
 st.code(code, language='python')
 
-st.markdown('This is a Web page for extraction of text from an image using **easyocr, opencv**')
+st.markdown('This is a Web page for Extraction of Text from an Image using **easyocr, opencv**')
 
 img_file = st.file_uploader(label = "Upload the Image for text extraction",type=['png','jpg','jpeg'])  
 
@@ -34,7 +35,7 @@ def preprocessing(pic):
 
     return img
 
-with st.spinner("Please Wait, as I am not a optimized programmer 🐼! "):
+with st.spinner("Please Wait, as I am not a Optimized Programmer 😅! "):
     reader = object_setup()
 
 if img_file is not None:
@@ -42,13 +43,13 @@ if img_file is not None:
     input_image = Image.open(img_file)
     st.image(input_image)
 
-    my_bar = st.progress(50)
+    my_bar = st.progress(0)
 
     for percent_complete in range(1):
 
         pic = np.array(input_image)
         pic = preprocessing(pic)
-        result = reader.readtext(pic, decoder = 'beamsearch')
+        result = reader.readtext(pic, decoder = 'beamsearch')# Return list of results
         result_text = []
 
         for text in result:
@@ -60,6 +61,8 @@ if img_file is not None:
 
     st.snow()
 else:
-    st.write("Upload an Image")
+    with st.spinner('👾👾👾👾👾👾👾👾'):
+        time.sleep(5)
+        st.write("👽👽👽👽")
 
 st.caption("Created by @Anish521🐱")
